@@ -19,7 +19,7 @@ const nftTotalScoreElem = document.querySelector("[data-nft-total-score]")
 
 setPixelToGameScale()
 window.addEventListener("resize", setPixelToGameScale)
-document.addEventListener("keydown", handlestart, { once: true })
+document.addEventListener("keydown", handleStart, { once: true })
 
 let lastTime
 let speedScale 
@@ -50,6 +50,83 @@ function update(time) {
     if (checkLose()) return handleLose()
     lastTime = time
     window.requestAnimationFrame(update)
+}
+
+
+
+function checkLose() {
+    const playerRect = getPlayerRect()
+    return getObstacleRects().some(rect => isCollision(rect, playerRect))
+}
+
+function isCollision(rect1, rect2) {
+    return (
+        rect1.left < rect2.right &&
+        rect1.top < rect2.bottom &&
+        rect1.right > rect2.left &&
+        rect1.bottom > rect2.top 
+    )
+}
+
+
+function checkIfWeGotNft() {
+    const playerRect = getPlayerRect()
+    if(getNftRects().some(rect => isCollision(rect, playerRect))) {
+        const nftRemove = document.querySelectorAll("[data-nft]") [0]
+        nftToRemove.remove()
+        nftScore += 1
+        nftScoreElem.textContent = `nft score: ${nftScore}`
+    }
+
+    return getNftRects().some(rect => isCollision(rect, playerRect))
+}
+
+function updateSpeedScale(delta) {
+    speedScale += delta * SPEED_SCALE_INCREASE
+}
+
+
+function handleStart() {
+    lastTime = null
+    speedScale = 1
+    score = 0 
+    setupGround()
+    setupPlayer()
+    setupObstacle()
+    setupNft()
+    startScreenElem.classList.add("hide")
+
+    window.requestAnimationFrame(update)
+
+}
+
+function updateScore(delta) {
+
+    score += delta * 0.01
+    scoreElem.textContent = `Wei score: ${Math.floor(score)}`
+
+}
+
+window.totalNFTscore = 0
+window.totalGweiScore = 0
+
+
+function handleLose(){
+window.totalGweiScore += Math.floor(score)
+window.totalNFTScore += nftScore
+
+
+nftTotalScoreElem.textContent = `NFT total score: ${window.totalNFTScore}`
+gweiTotalScoreElem.textContent = `Wei total score: ${window.totalGweiScore}`
+
+nftScore = 0
+nftTotalScoreElem.textContent = `nft score: ${nftScore}`
+
+setTimeout(() => {
+    document.addEventListener("keydown", handleStart, { once: true })
+    startScreenElem.classList.remove("hide")
+})
+
 }
 
 
