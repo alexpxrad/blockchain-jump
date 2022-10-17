@@ -110,12 +110,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 2;
 
     color: #fff;
   text-align: center;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
+  -webkit-animation: glow 0.2s ease-in-out infinite alternate;
+  -moz-animation: glow 0.2s ease-in-out infinite alternate;
+  animation: glow 0.2s ease-in-out infinite alternate;
 }
 
 @-webkit-keyframes glow {

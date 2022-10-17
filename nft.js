@@ -45,7 +45,7 @@ import {
     const nft = document.createElement("img")
     nft.dataset.nft = true
    
-    nft.src = "imgs/nft.png"
+    nft.src = "imgs/nft.gif"
   
     nft.classList.add("nft")
     setCustomProperty(nft, "--left", 100)
