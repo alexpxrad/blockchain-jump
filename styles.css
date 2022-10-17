@@ -14,6 +14,7 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .game {
@@ -24,6 +25,8 @@
   button {
     position: fixed;
     margin-top: 1px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius:10px;
   }
   
   .nftTotalScore {
@@ -31,6 +34,7 @@
     font-size: 3vmin;
     right: 30vmin;
     top: 4vmin;
+    color: white;
   }
   
   .gweiTotalScore {
@@ -38,6 +42,7 @@
     font-size: 3vmin;
     right: 30vmin;
     top: 1vmin;
+    color: white
   }
   
   .score {
@@ -45,6 +50,7 @@
     font-size: 3vmin;
     right: 1vmin;
     top: 1vmin;
+    color: white;
   }
   
   .button1 {
@@ -74,6 +80,7 @@
     font-size: 3vmin;
     right: 1vmin;
     top: 4vmin;
+    color: white;
   }
   
   

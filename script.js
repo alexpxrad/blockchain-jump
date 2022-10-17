@@ -39,7 +39,9 @@ function update(time) {
   updateSpeedScale(delta)
   updateScore(delta)
   checkIfWeGotNft()
-  // if there is a collision lose the game
+  
+  
+
   if (checkLose()) return handleLose()
   lastTime = time
   window.requestAnimationFrame(update)
@@ -75,13 +77,13 @@ function updateSpeedScale(delta) {
 }
 
 function updateScore(delta) {
-  // kolku score dobivas tuka se presmetue
-  // console.log("delta u update score function = ", delta)
+
+    
   score += delta * 0.01
   scoreElem.textContent = `Wei score: ${Math.floor(score)}` 
 }
 
-// kaa kje pozne
+
 function handleStart() {
   lastTime = null
   speedScale = 1
@@ -91,7 +93,9 @@ function handleStart() {
   setupObstacle()
   setupNft()
   startScreenElem.classList.add("hide")
-  // call this onnly wehne screen refershes
+
+  
+
   window.requestAnimationFrame(update)
 }
 
@@ -109,7 +113,8 @@ function handleLose() {
   nftScore = 0
   nftScoreElem.textContent = `nft score: ${nftScore}`
   setPlayerLose()
-  // save
+ 
+  
   setTimeout(() => {
     document.addEventListener("keydown", handleStart, { once: true })
     startScreenElem.classList.remove("hide")
