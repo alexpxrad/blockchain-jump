@@ -1,6 +1,6 @@
 # Description
 
-I have created a blockchain NFT play to earn game based off the video game character Megaman
+I have created a blockchain NFT play to earn game based off the video game character Megaman.
 You play as the character Megaman and are rewarded Tokens and NFTs as the game progresses and 
 you jump over the barriers collecting NFT items.  
 
